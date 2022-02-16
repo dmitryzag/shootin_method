@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+}
+
+.columns {
+    padding: 20px;
+}
+
+#red {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #F38181;
+}
+
+#orange {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #FCE38A;
+}
+
+#yellow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #95E1D3;
+}
+
+.ct-series-a .ct-bar,
+.ct-series-a .ct-line,
+.ct-series-a .ct-point,
+.ct-series-a .ct-slice-donut {
+    stroke: #F38181;
+}
+
+.ct-series-b .ct-bar,
+.ct-series-b .ct-line,
+.ct-series-b .ct-point,
+.ct-series-b .ct-slice-donut {
+    stroke: #FCE38A;
+}
+
+.ct-series-c .ct-bar,
+.ct-series-c .ct-line,
+.ct-series-c .ct-point,
+.ct-series-c .ct-slice-donut {
+    stroke: #95E1D3;
+}
