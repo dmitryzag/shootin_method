@@ -10,22 +10,22 @@ new Chartist.Line('.ct-chart', {
 const start = document.querySelector("#start");
 
 const rFun = (x,y,dy) =>{
-  return -2 * y + y /x + 3; 
+  return -2 * dy + y /x + 3; 
 };
 
 let fRunge = (x,y,dy,h) => {
-    let K1 = h * rFun(x,y,dy);
-    let K2 = h * rFun(x + h / 2, y + h / 2 * dy + h / 8 * K1, dy + K1 / 2);
-    let K3 = h * rFun(x + h / 2, y + h / 2 * dy + h / 8 * K2, dy + K2 / 2);
-    let K4 = h * rFun(x + h, y + h * dy + h / 2* K3, dy + K3);
+  let K1 = h * rFun(x,y,dy);
+  let K2 = h * rFun(x + h / 2, y + h / 2 * dy + h / 8 * K1, dy + K1 / 2);
+  let K3 = h * rFun(x + h / 2, y + h / 2 * dy + h / 8 * K2, dy + K2 / 2);
+  let K4 = h * rFun(x + h, y + h * dy + h / 2* K3, dy + K3);
     
-    y = y + h * dy + 1 / 6 * (K1 + K2 + K3);
-    dy = dy + 1 / 6 * (K1 + 2 * K2 + 2 * K3 + K4);
+  y = y + h * dy + 1 / 6 * (K1 + K2 + K3);
+  dy = dy + 1 / 6 * (K1 + 2 * K2 + 2 * K3 + K4);
 
-    return [y,dy];
+  return [y,dy];
 };
 
-const mShooting = (a = 0.9,b = 1.2,n = 3,c = 1,epsilon = 0.000001, B = 1, A = 2) => {
+const mShooting = (a, b, n, c, epsilon, B, A) => {
   let step = (b-a) / n;
   let points = [];
   points[0] = new Array(n+1); // x
@@ -62,7 +62,7 @@ start.addEventListener('click', ()=>{
   console.log(points);
 
   new Chartist.Line('.ct-chart', {
-    labels: [points[0]],
+    labels: points[0],
     series: [points[1]]
   }, {
     fullWidth: true,
